@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class CalculatorController {
+	
+	String expression;
+	CalculatorModel calcModel = new CalculatorModel();
+	CalculatorView calcView = new CalculatorView();
+	
+	
+	public CalculatorController(){
+			
+	}
+
+	public void getExpression(){
+		Scanner s = new Scanner(System.in);
+		expression = s.nextLine();
+		s.close();
+	}
+	
+	public void setExpression(){
+		calcModel.expressionStack.array = expression.split(" ");
+		calcModel.expressionStack.index = calcModel.expressionStack.array.length; 
+	}
+	
+	public Double getAnswer(){
+		calcModel.infixToPostfix();
+		calcModel.evaluatePostfix();
+		return calcModel.getAnswer();
+	}
+	
+	public void displayAnswer(){
+		calcView.displayOutput(getAnswer());
+	}
+	
+	public static void main(String args[]){
+		CalculatorController newCalc = new CalculatorController();
+		newCalc.calcView.menu();
+		newCalc.getExpression();
+		newCalc.setExpression();
+		newCalc.getAnswer();
+		newCalc.displayAnswer();		
+	}
+	
+}

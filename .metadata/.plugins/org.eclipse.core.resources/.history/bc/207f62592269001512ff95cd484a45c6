@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class CalculatorController {
+	
+	String expression;
+
+	public void getExpression(){
+		Scanner s = new Scanner(System.in);
+		expression = s.nextLine();
+	}
+	
+	public void setExpression(){
+		
+	}
+}

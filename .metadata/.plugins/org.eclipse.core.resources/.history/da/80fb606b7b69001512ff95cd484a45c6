@@ -1,0 +1,11 @@
+
+public class CalculatorModel {
+	
+	Stack<String> expressionStack;
+	Double answer;
+	
+	public Double getAnswer(){
+		return answer;
+	}
+
+}

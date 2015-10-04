@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class CalculatorController {
+	
+	String expression;
+	CalculatorModel calcModel = new CalculatorModel();
+
+	public void getExpression(){
+		Scanner s = new Scanner(System.in);
+		expression = s.nextLine();
+	}
+	
+	public void setExpression(){
+		expressionStack.array = expression.split(" ");
+		expressionStack.index = expressionStack.array.length; 
+	}
+}

@@ -1,0 +1,12 @@
+
+public class CountAndSayClass {
+
+	String countAndSay(){
+		
+	}
+	
+	String parseAndUpdate(int n){
+		
+	}
+	
+}
