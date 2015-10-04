@@ -1,0 +1,38 @@
+/**
+ * In this examples child class constructor does not use any parameterized constructor of parent class 
+ * to update variables of parent class.
+ * So by default only non parameterized constructor of parent class is called which sets value of aInt to 11.
+ * Child class's constructor also initializes its (duplicate) variable aInt's value to 11 initially.
+ * Overridden methods always access instance variable of child class if names are same unless specified the parent class's variable
+ * by super keyword. 
+ * @author1 Manasi Sunil Bharde
+ * @author2 Praneeth Iyyapu
+ *
+ */
+public class A {
+
+  int aInt = 1;		
+
+  A() {
+	aInt = 11;
+  }
+  public int intPlusPlus()	{
+	return ++aInt;
+  }
+  public String toString()	{
+	  System.out.println("A to string");
+	return this.getClass().getName() + ": " + aInt;
+  }
+
+  public static void main(String args[]) {
+	A aA = new A();
+	// aInt is incremented and value is 12 now
+	aA.intPlusPlus();
+	// A.toString method is called since aA is object of type A
+	//Value of aInt = 12 is printed
+	System.out.println(aA);
+  }
+}
+
+
+

@@ -1,0 +1,35 @@
+public class AA extends A {
+
+	  int aInt = 1;		
+
+	  AA() {
+		aInt = 11;
+	  }
+	  public int intPlusPlus()	{
+		return ++aInt;
+	  }
+	  public String toString()      {
+		  System.out.println("AA to string");
+
+	        return this.getClass().getName() + ": " + aInt;
+	  }
+
+	  public static void main(String args[]) {
+		AA aAA = new AA();
+		//aA is assigned an object of child class AA
+		A   aA = (A)aAA;
+		//method intPlusPlus which is overridden for class AA is called which uses instance variable aInt of object AA
+		//aInt = 12
+		aAA.intPlusPlus();
+		//method intPlusPlus which is overridden for class AA is called since aA now refers to object of type AA
+		//aInt = 13
+		aA.intPlusPlus();
+		//toString method for class AA is called which uses instance variable aInt of object AA
+		// and value of aInt = 13 is printed
+		System.out.println(aA);
+		//toString method for class AA is called and value of aInt = 13 is printed
+		System.out.println(aAA);
+		//aInt of class A is printed
+		System.out.println("aA: " + aA.aInt);
+	  }
+	}

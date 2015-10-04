@@ -1,0 +1,16 @@
+
+public class CountAndSayClass {
+
+	String countAndSay(int n){
+		String op[] = new String[n];
+		for(int i=0; i<n; i++){
+			
+		}
+		return null;		
+	}
+	
+	String parseAndUpdate(int n){
+		
+	}
+	
+}

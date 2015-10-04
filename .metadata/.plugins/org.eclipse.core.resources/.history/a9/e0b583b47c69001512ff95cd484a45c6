@@ -1,0 +1,13 @@
+public class CalculatorModel {
+	
+	Double answer;
+	String[] expressionArray;
+	Stack<Character> operatorStack;
+	Stack<String> expressionStack,postfixExpressionStack;
+	Stack<Double> operandStack;
+	int length;
+
+	public Double getAnswer(){
+		return answer;
+	}
+}

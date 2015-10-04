@@ -1,0 +1,36 @@
+
+public class CountAndSayClass {
+	
+	
+	
+	public static void main(String[] args){
+		System.out.println(countAndSay(3));
+	}
+
+	static String countAndSay(int n){
+		String op[] = new String[n+1];
+		op[0] = "";
+		op[1] = "1";
+		for(int i=2; i<n; i++){
+			op[i] = parseAndUpdate(op[i-1]);
+			System.out.println(op[i]);
+		}
+		return op[n];		
+	}
+	
+	static String parseAndUpdate(String op){
+		char c = op.charAt(0);
+		int count = 1;
+		String output="";
+		for(int i = 0; i < op.length(); i++ ){
+			if(op.charAt(i)==c)
+				count++;
+			else{
+				output = output + count + c;
+				count = 0;
+			}			
+		}
+		output = output + count + c;
+		return output;
+	}	
+}
