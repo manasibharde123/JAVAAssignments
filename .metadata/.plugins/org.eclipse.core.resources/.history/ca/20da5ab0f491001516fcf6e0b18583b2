@@ -1,0 +1,12 @@
+
+public class HelloImplementation implements HelloInterface {
+
+	@Override
+	public void justTest() {
+		
+	}
+	
+	public HelloImplementation(){
+		
+	}
+}

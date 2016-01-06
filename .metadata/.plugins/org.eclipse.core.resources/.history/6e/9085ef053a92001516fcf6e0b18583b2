@@ -1,0 +1,10 @@
+import java.rmi.Remote;
+
+public class HelloImplementation implements HelloInterface, Remote {
+
+	@Override
+	public void justTest() {
+		
+	}
+	
+}
