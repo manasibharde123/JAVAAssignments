@@ -1,7 +1,0 @@
-
-public class CalculatorModel {
-	
-	Stack<String> expressionStack;
-	Double answer;
-
-}
