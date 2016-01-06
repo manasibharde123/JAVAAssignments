@@ -1,0 +1,28 @@
+import java.rmi.*;
+
+public class HelloC {
+
+	public static void localRemoteTest(HelloInterface obj)	{
+		try {
+			// obj.test(...)
+			// your code here
+			System.out.println(obj);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public HelloC(){
+		HelloImplementation hp = new HelloImplementation();
+		Naming.rebind("//spiegel/thisOne")
+	}
+
+	public static void main(String args[] ) {
+		try {
+			localRemoteTest(  (HelloInterface)Naming.lookup("//spiegel/thisOne") );
+			localRemoteTest(  new HelloImplementation());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+}

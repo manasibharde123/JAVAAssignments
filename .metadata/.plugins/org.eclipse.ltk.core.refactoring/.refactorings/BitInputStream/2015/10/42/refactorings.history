@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;BitInputStream.java&apos; to &apos;Homework7-2/src/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;BitInputStream&apos;&#x0D;&#x0A;- Destination element: &apos;Homework7-2/src/(default package)&apos;&#x0D;&#x0A;- Original element: &apos;BitInputStream.java&apos;" description="Copy compilation unit" destination="=Homework7-2/src&lt;" element1="/src&lt;{BitInputStream.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1444597029385" units="1" version="1.0"/>
+</session>

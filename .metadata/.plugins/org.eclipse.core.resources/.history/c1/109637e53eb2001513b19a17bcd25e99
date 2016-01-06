@@ -1,0 +1,86 @@
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+
+
+public class BitOutputStream extends Thread{ 
+	
+	BufferedOutputStream os;
+	Object o;
+	int buffer, count = 0,noOfBytes=0;
+	byte[] bufferedOutput = new byte[1000];
+	
+	public BitOutputStream(BufferedOutputStream os, Object o){
+		this.o = o;
+		this.os = os;
+	}
+	
+	/*public void run(){
+		while(true)
+		synchronized(o){
+			System.out.println("waiting for nt");
+		try {
+			o.wait();
+			System.out.println("writing to file");
+			os.write(bufferedOutput,0,1000);
+			o.notify();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}}
+	}*/
+	
+	public void writeBit(boolean value){
+		if(count == 8)
+			writeInt();
+		buffer = buffer<<1;
+		if(value)			
+			buffer = buffer | 1;
+		count++;
+	}
+
+	private void writeInt() {
+		synchronized(o){
+		if(noOfBytes==1000){
+			o.notify();
+		}}
+		noOfBytes = 0;
+
+		bufferedOutput[noOfBytes++] = (byte)buffer;
+		buffer = 0;
+		count = 0;
+	}
+	
+	private void writeByteArray(){
+		try {
+			os.write(bufferedOutput,0,1000);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void write(String codes) {
+		System.out.println("here"+codes);
+		for(int i=0; i<codes.length(); i++){
+			if(codes.charAt(i)=='1')
+				writeBit(true);
+			else
+				writeBit(false);
+		}		
+	}
+	
+	public void close(){
+		if(count<8){
+			buffer = buffer<<(8-count);
+			writeInt();
+			}
+		try {	
+			os.write(bufferedOutput,0,noOfBytes);
+			os.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

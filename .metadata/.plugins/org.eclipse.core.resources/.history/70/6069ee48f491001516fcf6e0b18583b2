@@ -1,0 +1,9 @@
+
+public class HelloImplementation implements HelloInterface {
+
+	@Override
+	public void justTest() {
+		// TODO Auto-generated method stub
+		
+	}
+}

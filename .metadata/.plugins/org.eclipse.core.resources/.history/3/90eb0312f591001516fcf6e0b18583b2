@@ -1,0 +1,34 @@
+import java.net.MalformedURLException;
+import java.rmi.*;
+
+public class HelloC {
+
+	public static void localRemoteTest(HelloInterface obj)	{
+		try {
+			// obj.test(...)
+			// your code here
+			System.out.println(obj);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public HelloC(){
+		HelloImplementation hp = new HelloImplementation();
+		try {
+			Naming.rebind("//spiegel/thisOne", hp);
+		} catch (RemoteException | MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String args[] ) {
+		try {
+			localRemoteTest(  (HelloInterface)Naming.lookup("//localhost/thisOne") );
+			localRemoteTest(  new HelloImplementation());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+}
